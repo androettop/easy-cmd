@@ -9,6 +9,10 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "url": "https://github.com/androettop/easy-cmd"
+  },
+  "publisher": "PabloAndroetto",
   "activationEvents": [
     "onStartupFinished"
   ],
