@@ -2,7 +2,7 @@
   "name": "easy-cmd",
   "displayName": "easy-cmd",
   "description": "Easy command buttons",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.97.0"
   },
