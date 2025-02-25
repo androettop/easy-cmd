@@ -2,7 +2,7 @@
   "name": "easy-cmd",
   "displayName": "easy-cmd",
   "description": "Easy command buttons",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.97.0"
   },
@@ -17,6 +17,7 @@
     "onStartupFinished"
   ],
   "main": "./dist/extension.js",
+  "icon": "images/icon.png",
   "contributes": {
     "configuration": {
       "title": "Easy Cmd",
