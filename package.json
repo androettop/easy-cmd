@@ -2,7 +2,7 @@
   "name": "easy-cmd",
   "displayName": "easy-cmd",
   "description": "Easy command buttons",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "engines": {
     "vscode": "^1.97.0"
   },
@@ -19,9 +19,31 @@
   "main": "./dist/extension.js",
   "icon": "images/icon.png",
   "contributes": {
+    "commands": [
+      {
+        "command": "easy-cmd.refresh",
+        "title": "Refresh commands",
+        "category": "easy-cmd"
+      },
+      {
+        "command": "easy-cmd.addCommand",
+        "title": "Add new command",
+        "category": "easy-cmd"
+      }
+    ],
     "configuration": {
       "title": "Easy Cmd",
       "properties": {
+        "easy-cmd.hideRefreshButton": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hide the refresh button from the status bar"
+        },
+        "easy-cmd.hideAddButton": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hide the add button from the status bar"
+        },
         "easy-cmd.buttons": {
           "type": "array",
           "default": [],
@@ -45,6 +67,10 @@
               "command": {
                 "type": "string",
                 "description": "The command to run when the button is clicked"
+              },
+              "tooltip": {
+                "type": "string",
+                "description": "The tooltip to show when the button is hovered, if not provided, the command will be used"
               }
             }
           }

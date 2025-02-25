@@ -1,11 +1,11 @@
 # easy-cmd
 
-easy-cmd is a Visual Studio Code extension that provides easy-to-configure command buttons in the status bar. With this extension, you can quickly run shell commands in the active terminal with a single click.
+easy-cmd is a Visual Studio Code extension that provides easy-to-configure command buttons in the status bar. With this extension, you can quickly run shell commands or VS Code commands with a single click.
 
 ## Features
 
 - **Custom Command Buttons:**  
-  Easily define buttons that appear in the status bar, each executing a specific shell command.
+  Easily define buttons that appear in the status bar, each executing a specific shell or VS Code command.
 
 - **Customizable Appearance:**  
   Configure the name and color of each button to suit your preferences.
@@ -29,7 +29,9 @@ easy-cmd is a Visual Studio Code extension that provides easy-to-configure comma
 
 ## Configuration
 
-The extension allows you to define a list of buttons via the VS Code settings. To configure your command buttons, add or modify the `easy-cmd.buttons` property in your `settings.json` file. Each button is an object with the following properties:
+The extension allows you to define a list of buttons via the add command button in the status bar, or manually in the VS Code settings.
+
+To configure your command buttons manually, add or modify the `easy-cmd.buttons` property in your `settings.json` file. Each button is an object with the following properties:
 
 - **name** (`string`):  
   The label of the button displayed in the status bar. Icons can be used in button names, see the [VS Code Icons](https://code.visualstudio.com/api/references/icons-in-labels) documentation for a list of available icons.
@@ -38,12 +40,19 @@ The extension allows you to define a list of buttons via the VS Code settings. T
   The color of the button text.
 
 - **command** (`string`):  
-  The shell command to execute when the button is clicked.
+  The shell command or VS Code command to execute when the button is clicked. If the command starts with `#`, it will be treated as a VS Code command.
+
+- **tooltip** (`string`, optional):  
+  The tooltip text displayed when hovering over the button.
+
+You can also hide the add/refresh buttons by setting the `easy-cmd.hideAddButton` and `easy-cmd.hideRefreshButton` properties to `true`.
 
 ### Example Configuration
 
 ```json
 {
+  "easy-cmd.hideAddButton": false,
+  "easy-cmd.hideRefreshButton": false,
   "easy-cmd.buttons": [
     {
       "name": "$(repo-pull) Pull",
@@ -53,6 +62,11 @@ The extension allows you to define a list of buttons via the VS Code settings. T
     {
       "name": "$(repo-push) Push",
       "command": "git push"
+    },
+    {
+      "name": "$(check) Format Document",
+      "command": "#editor.action.formatDocument",
+      "tooltip": "Format the current document"
     }
   ]
 }
