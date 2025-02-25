@@ -25,7 +25,13 @@ export function activate(context: vscode.ExtensionContext) {
       const terminal =
         vscode.window.activeTerminal || vscode.window.createTerminal();
 
-      terminal.shellIntegration?.executeCommand(cmd);
+      terminal.show(true);
+
+      if (terminal.shellIntegration) {
+        terminal.shellIntegration.executeCommand(cmd);
+      } else {
+        terminal.sendText(cmd, true);
+      }
     })
   );
 }
