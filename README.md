@@ -58,7 +58,7 @@ The extension allows you to define a list of buttons via the VS Code settings. T
 }
 ```
 
-![screnshot](screenshot.png)
+![screnshot](https://github.com/androettop/easy-cmd/raw/master/screenshot.png)
 
 ## Contributing
 
